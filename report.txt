@@ -1,0 +1,113 @@
+Creating test database for alias 'default'...
+IntegerField(max_value=10, min_value=1)
+System check identified no issues (0 silenced).
+.......FF.........................FFF........FF.........................FFF.
+======================================================================
+FAIL: test_admin_cannot_create_review (account.tests.TestCriticismReviewView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/account/tests.py", line 761, in test_admin_cannot_create_review
+    self.assertEqual(response.status_code, 403)
+AssertionError: 201 != 403
+
+======================================================================
+FAIL: test_admin_cannot_update_review (account.tests.TestCriticismReviewView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/account/tests.py", line 1153, in test_admin_cannot_update_review
+    self.assertEqual(response.status_code, 403)
+AssertionError: 404 != 403
+
+======================================================================
+FAIL: test_filter_movies_with_the_filter_request (account.tests.TestMovieView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/account/tests.py", line 213, in test_filter_movies_with_the_filter_request
+    self.assertEqual(len(filter_movies.json()), 2)
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_genre_cannot_repeat (account.tests.TestMovieView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/account/tests.py", line 177, in test_genre_cannot_repeat
+    self.assertEqual(movie_1["genres"][1]["id"], movie_2["genres"][0]["id"])
+AssertionError: 2 != 3
+
+======================================================================
+FAIL: test_output_format_data (account.tests.TestMovieView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/account/tests.py", line 242, in test_output_format_data
+    self.assertEqual(movie_1, output_format_movie_data)
+AssertionError: {'id': 1, 'reviews': [], 'genres': [{'id': 1, 'name'[445 chars]do."} != {'id': 1, 'title': 'O Poderoso Chefão', 'duration': [430 chars]do."}
+  {'classification': 14,
+   'duration': '175m',
+   'genres': [{'id': 1, 'name': 'Crime'}, {'id': 2, 'name': 'Drama'}],
+   'id': 1,
+   'premiere': '1972-09-10',
+-  'reviews': [],
+   'synopsis': "Don Vito Corleone (Marlon Brando) é o chefe de uma 'família' de "
+               'Nova York que está feliz, pois Connie (Talia Shire), sua '
+               'filha,se casou com Carlo (Gianni Russo). Por ser seu padrinho '
+               'Vito foi procurar o líder da banda e ofereceu 10 mil dólares '
+               'para deixar Johnny sair, mas teve o pedido recusado.',
+   'title': 'O Poderoso Chefão'}
+
+======================================================================
+FAIL: test_admin_cannot_create_review (appKMDb.tests.TestCriticismReviewView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/appKMDb/tests.py", line 761, in test_admin_cannot_create_review
+    self.assertEqual(response.status_code, 403)
+AssertionError: 201 != 403
+
+======================================================================
+FAIL: test_admin_cannot_update_review (appKMDb.tests.TestCriticismReviewView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/appKMDb/tests.py", line 1155, in test_admin_cannot_update_review
+    self.assertEqual(response.status_code, 403)
+AssertionError: 404 != 403
+
+======================================================================
+FAIL: test_filter_movies_with_the_filter_request (appKMDb.tests.TestMovieView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/appKMDb/tests.py", line 213, in test_filter_movies_with_the_filter_request
+    self.assertEqual(len(filter_movies.json()), 2)
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_genre_cannot_repeat (appKMDb.tests.TestMovieView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/appKMDb/tests.py", line 177, in test_genre_cannot_repeat
+    self.assertEqual(movie_1["genres"][1]["id"], movie_2["genres"][0]["id"])
+AssertionError: 2 != 3
+
+======================================================================
+FAIL: test_output_format_data (appKMDb.tests.TestMovieView)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adilson/Documentos/Kenzie/Q4/entregas/KMDb/appKMDb/tests.py", line 242, in test_output_format_data
+    self.assertEqual(movie_1, output_format_movie_data)
+AssertionError: {'id': 1, 'reviews': [], 'genres': [{'id': 1, 'name'[445 chars]do."} != {'id': 1, 'title': 'O Poderoso Chefão', 'duration': [430 chars]do."}
+  {'classification': 14,
+   'duration': '175m',
+   'genres': [{'id': 1, 'name': 'Crime'}, {'id': 2, 'name': 'Drama'}],
+   'id': 1,
+   'premiere': '1972-09-10',
+-  'reviews': [],
+   'synopsis': "Don Vito Corleone (Marlon Brando) é o chefe de uma 'família' de "
+               'Nova York que está feliz, pois Connie (Talia Shire), sua '
+               'filha,se casou com Carlo (Gianni Russo). Por ser seu padrinho '
+               'Vito foi procurar o líder da banda e ofereceu 10 mil dólares '
+               'para deixar Johnny sair, mas teve o pedido recusado.',
+   'title': 'O Poderoso Chefão'}
+
+----------------------------------------------------------------------
+Ran 76 tests in 67.804s
+
+FAILED (failures=10)
+Destroying test database for alias 'default'...

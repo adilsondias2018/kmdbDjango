@@ -10,18 +10,18 @@ class Movie(models.Model):
     duration = models.CharField(max_length=50)
     premiere = models.CharField(max_length=50)
     classification = models.IntegerField()
-    synopsis = models.CharField(max_length=255)
+    synopsis = models.CharField(max_length=500)
  
  
 class Genre(models.Model):
     name = models.CharField(max_length=255)
-    movie = models.ManyToManyField(Movie, related_name='geners' )
+    movie = models.ManyToManyField(Movie, related_name='genres' )
 
 
 
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=CASCADE)
-    movie = models.ForeignKey(Movie, on_delete=CASCADE)
+    critic = models.ForeignKey(User, on_delete=CASCADE, related_name='reviews')
+    movie = models.ForeignKey(Movie, on_delete=CASCADE, related_name='reviews')
     stars = models.IntegerField()
     review = models.CharField(max_length=255)
     spoilers = models.BooleanField()

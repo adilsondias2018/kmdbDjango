@@ -18,14 +18,12 @@ class CreateUserView(APIView):
     def post(self, request):
         serializer = UserSerializer(data = request.data)
 
-        print(serializer)
-
         if not serializer.is_valid():
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
 
         if User.objects.filter(username=serializer.validated_data['username']).exists():
 
-            return Response({'error': 'A user with that username already exists.'}, status=status.HTTP_409_CONFLICT)
+            return Response({'username': ['A user with that username already exists.']}, status=status.HTTP_400_BAD_REQUEST)
 
         user = User.objects.create_user(**serializer.validated_data)
 

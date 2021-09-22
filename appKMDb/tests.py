@@ -1128,7 +1128,7 @@ class TestCriticismReviewView(TestCase):
 
         # creating movies to receive reviews
         client.post("/api/movies/", self.movie_data_1, format="json")
-
+        
         # login with critic user
         token = client.post(
             "/api/login/", self.critic_login_data, format="json"
@@ -1147,9 +1147,11 @@ class TestCriticismReviewView(TestCase):
         client.credentials(HTTP_AUTHORIZATION="Token " + token)
 
         # admin trying to update critic review
+    
         response = client.put(
             "/api/movies/1/review/", self.review_data_2, format="json"
         )
+        
         self.assertEqual(response.status_code, 403)
 
         # verifying if uppdated criticism is nested with movie correctly
